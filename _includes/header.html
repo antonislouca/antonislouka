@@ -1,0 +1,16 @@
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="{{ '/' | relative_url }}" class="brand">{{ site.data.profile.name }}</a>
+    <nav class="nav" aria-label="Primary">
+      {% for item in site.nav %}
+        <a href="{{ item.url | relative_url }}"
+           class="nav-link{% if page.url == item.url %} is-active{% endif %}">
+          {{ item.title }}
+        </a>
+      {% endfor %}
+    </nav>
+    <button class="theme-toggle" aria-label="Toggle dark mode" type="button">
+      <span class="theme-toggle-icon" aria-hidden="true">◐</span>
+    </button>
+  </div>
+</header>

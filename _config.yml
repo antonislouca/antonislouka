@@ -1,0 +1,45 @@
+title: "Antonis Louka"
+tagline: "PhD Candidate · Systems Security · DistriNet, KU Leuven"
+description: >-
+  Personal website of Antonis Louka, PhD Candidate in Systems Security at DistriNet, KU Leuven.
+  Publications, experience, and talks.
+
+url: "https://antonislouca.github.io"
+baseurl: "/antonislouka"
+
+lang: en-US
+
+markdown: kramdown
+highlighter: rouge
+permalink: pretty
+timezone: Europe/Athens
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - .bundle
+  - node_modules
+  - README.md
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: default
+  - scope:
+      path: "assets"
+    values:
+      layout: null
+
+nav:
+  - { title: "About", url: "/" }
+  - { title: "Publications", url: "/publications/" }
+  - { title: "Talks", url: "/presentations/" }
+  - { title: "Experience", url: "/cv/" }

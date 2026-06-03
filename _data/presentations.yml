@@ -1,0 +1,7 @@
+- title: "Physical Memory Please: Practical Memory-Aliasing Attacks on RISC-V PMP"
+  type: conference
+  event: "Proceedings of the 2nd Microarchitecture Security Conference"
+  date: "2026-02-11"
+  location: "Leuven, Belgium"
+  links:
+    - { name: "video",  url: "https://www.youtube.com/watch?v=bkYsV6FSWQs" }

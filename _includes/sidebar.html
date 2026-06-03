@@ -1,0 +1,60 @@
+{%- assign p = site.data.profile -%}
+<aside class="sidebar">
+  {% if p.photo %}
+    <img class="avatar" src="{{ p.photo | relative_url }}" alt="{{ p.name }}"
+         onerror="this.style.display='none'">
+  {% endif %}
+  <h2 class="profile-name">{{ p.name }}</h2>
+  {% if p.title %}<p class="profile-title">{{ p.title }}</p>{% endif %}
+  {% if p.affiliation %}<p class="profile-aff">{{ p.affiliation }}</p>{% endif %}
+  {% if p.location %}<p class="profile-loc">{{ p.location }}</p>{% endif %}
+
+  <ul class="contact">
+    {% if p.email %}
+      <li><a href="mailto:{{ p.email }}">{{ p.email }}</a></li>
+    {% endif %}
+    {% if p.cv_pdf %}
+      <li><a href="{{ p.cv_pdf | relative_url }}">CV (PDF)</a></li>
+    {% endif %}
+  </ul>
+
+  <ul class="socials">
+    {% if p.links.github != "" and p.links.github %}
+      {% if p.links.github contains "://" %}
+        <li><a href="{{ p.links.github }}" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+      {% else %}
+        <li><a href="https://github.com/{{ p.links.github }}" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+      {% endif %}
+    {% endif %}
+
+    {% if p.links.scholar != "" and p.links.scholar %}
+      {% if p.links.scholar contains "://" %}
+        <li><a href="{{ p.links.scholar }}" target="_blank" rel="noopener noreferrer">Scholar</a></li>
+      {% else %}
+        <li><a href="https://scholar.google.com/citations?user={{ p.links.scholar }}" target="_blank" rel="noopener noreferrer">Scholar</a></li>
+      {% endif %}
+    {% endif %}
+
+    {% if p.links.orcid != "" and p.links.orcid %}
+      {% if p.links.orcid contains "://" %}
+        <li><a href="{{ p.links.orcid }}" target="_blank" rel="noopener noreferrer">ORCID</a></li>
+      {% else %}
+        <li><a href="https://orcid.org/{{ p.links.orcid }}" target="_blank" rel="noopener noreferrer">ORCID</a></li>
+      {% endif %}
+    {% endif %}
+
+    {% if p.links.linkedin != "" and p.links.linkedin %}
+      {% if p.links.linkedin contains "://" %}
+        <li><a href="{{ p.links.linkedin }}" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+      {% elsif p.links.linkedin contains "www." %}
+        <li><a href="https://{{ p.links.linkedin }}" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+      {% else %}
+        <li><a href="https://linkedin.com/in/{{ p.links.linkedin }}" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+      {% endif %}
+    {% endif %}
+    {% if p.links.twitter != "" and p.links.twitter %}<li><a href="https://twitter.com/{{ p.links.twitter }}" target="_blank" rel="noopener noreferrer">Twitter</a></li>{% endif %}
+    {% if p.links.mastodon != "" and p.links.mastodon %}<li><a href="{{ p.links.mastodon }}" target="_blank" rel="noopener noreferrer">Mastodon</a></li>{% endif %}
+    {% if p.links.bluesky != "" and p.links.bluesky %}<li><a href="https://bsky.app/profile/{{ p.links.bluesky }}" target="_blank" rel="noopener noreferrer">Bluesky</a></li>{% endif %}
+    {% if p.links.researchgate != "" and p.links.researchgate %}<li><a href="https://www.researchgate.net/profile/{{ p.links.researchgate }}" target="_blank" rel="noopener noreferrer">ResearchGate</a></li>{% endif %}
+  </ul>
+</aside>

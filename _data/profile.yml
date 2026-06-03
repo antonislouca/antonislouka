@@ -1,0 +1,23 @@
+name: "Antonis Louka"
+title: "PhD Candidate"
+affiliation: "DistriNet, KU Leuven, Department of Computer Science"
+
+photo: "/assets/img/profile.jpg"
+
+bio: >-
+  I am a PhD candidate at the DistriNet Research Group, supervised by [Professor Jo Van Bulck](https://vanbulck.net/), focusing on systems security with an emphasis on firmware and low-level systems. My research explores the security challenges at the hardware–software boundary, including both attacks and defenses targeting privileged execution environments and hardware-assisted isolation mechanisms. I have prior experience with compiler infrastructures and reverse engineering frameworks.
+
+email: "antonis.louka2@kuleuven.be"
+
+links:
+  github: "antonislouca"
+  linkedin: "www.linkedin.com/in/antonis-louka"
+  twitter: ""
+  mastodon: ""
+  bluesky: ""
+  scholar: "0O7Y0rMAAAAJ"
+  orcid: "0009-0006-1501-4933"
+  semantic_scholar: ""
+  dblp: ""
+  arxiv: ""
+  researchgate: ""

@@ -1,0 +1,14 @@
+- degree: "PhD in Engineering Science"
+  institution: "KU Leuven"
+  year: "2025 – present"
+  advisor:
+    name: "Jo Van Bulck"
+    url: "https://vanbulck.net/"
+
+- degree: "MSc in Computer Science"
+  institution: "University of Cyprus"
+  year: "2022 – 2024"
+
+- degree: "BSc in Computer Science"
+  institution: "University of Cyprus"
+  year: "2018 – 2022"

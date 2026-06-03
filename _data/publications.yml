@@ -1,0 +1,95 @@
+- title: "SoK: 20 Years of Power, Privilege, and Peril in x86 System Management Mode"
+  authors: "**Antonis Louka**, Jo Van Bulck"
+  year: 2026
+  venue: "20th USENIX WOOT Conference on Offensive Technologies"
+  type: conference
+  selected: true
+  links:
+    - { name: "PDF",   url: "/papers/sok-smm.pdf" }
+    - { name: "DOI",  url: ""}
+
+  bibtex: |
+   @inproceedings{louka2026sok-smm,
+   title     = {SoK: 20 Years of Power, Privilege, and Peril in x86 System Management Mode},
+   author    = {Louka, Antonis and Van Bulck, Jo},
+   booktitle = {20th USENIX WOOT Conference on Offensive Technologies},
+   month     = Aug,
+   year      = 2026
+   }
+
+
+- title: "Physical Memory Please: Practical Memory-Aliasing Attacks on RISC-V PMP"
+  authors: "**Antonis Louka**, Jesse De Meulemeester, Steven Keuchel, Ingrid Verbauwhede, Jo Van Bulck"
+  year: 2026
+  venue: "Proceedings of the 2nd Microarchitecture Security Conference"
+  type: conference
+  selected: true
+  links:
+    - { name: "PDF",   url: "/papers/louka26pmplease.pdf" }
+    - { name: "Code",  url: "https://github.com/dnet-tee/PMPlease" }
+    - { name: "DOI",  url: "https://doi.org/10.46586/uasc.2026.008"}
+    - { name: "Talk",  url: "https://www.youtube.com/watch?v=bkYsV6FSWQs" }
+
+  bibtex: |
+    @inproceedings{louka26pmplease,
+      title     = {Physical Memory Please: Practical Memory-Aliasing Attacks on RISC-V PMP},
+      author    = {Louka, Antonis and De Meulemeester, Jesse and Keuchel, Steven and Verbauwhede, Ingrid and Van Bulck, Jo},
+      booktitle = {2nd Microarchitecture Security Conference ({uASC})},
+      month     = Feb,
+      year      = 2026
+    }
+
+- title: "rustc++: Facilitating Advanced Analysis of Rust Code"
+  authors: "**Antonis Louka**, Georgios Portokalidis, Elias Athanasopoulos"
+  year: 2025
+  venue: "Proceedings of the 18th European Workshop on Systems Security"
+  type: workshop
+  selected: false
+  links:
+    - { name: "PDF", url: "/papers/rustc++.pdf" }
+    - { name: "DOI",  url: "https://dl.acm.org/doi/10.1145/3722041.3723102"}
+  bibtex: |
+    @inproceedings{10.1145/3722041.3723102,
+    author = {Louka, Antonis and Portokalidis, Georgios and Athanasopoulos, Elias},
+    title = {rustc++: Facilitating Advanced Analysis of Rust Code},
+    year = {2025},
+    isbn = {9798400715631},
+    publisher = {Association for Computing Machinery},
+    address = {New York, NY, USA},
+    url = {https://doi.org/10.1145/3722041.3723102},
+    doi = {10.1145/3722041.3723102},
+    abstract = {Rust is a popular programming language with strong memory-safety guarantees, achieved through its ownership and borrowing model. Rust allows a programmer to escape memory safety using explicitly marked unsafe code in order to facilitate integration with existing C/C++ code. Such safe code is not immune to typical memory errors. To avoid such bugs researchers try to provide both static and dynamic analysis tools and incorporate C/C++ hardening techniques for unsafe Rust. However, such analysis is not always trivial as Rust uses multiple intermediate representations (IR), and when lowering a higher level IR to a lower level IR, all information that marks a specific block of code as unsafe is lost. Since the two worlds of Rust, safe and unsafe, are built on different assumptions many analysis tools and techniques can benefit from knowing where the safe context changes to unsafe and vice-versa.In this work, we present a modified Rust compiler (rustc++) that extends the capabilities of the Mid-level Intermediate Representation (MIR) to enable serialization and metadata enhancements. Our framework introduces MIR++, an enhanced MIR representation that embeds metadata identifying safe and unsafe instructions, enabling fine-grained safety tracking throughout the compilation pipeline. Additionally, rustc++ enhances the LLVM-IR representation and produced binaries with metadata allowing LLVM passes and post-compilation analysis tools to distinguish between the safe and unsafe context. Lastly, rustc++ makes preliminary efforts in serializing Rusts MIR to a portable JSON format using the Serde serialization library. Our goal is to allow external tools to work on MIR and its in-memory metadata, without requiring the full compiler pipeline. Modifications of rustc++ maintain compatibility with the existing Rust ecosystem while offering a powerful foundation for future analysis tools.},
+    booktitle = {Proceedings of the 18th European Workshop on Systems Security},
+    pages = {63–69},
+    numpages = {7},
+    keywords = {Borrow Checker, MIR++, Memory Safety, Mixed Binaries, Rust, Rust Compiler Extensions},
+    location = {Rotterdam, Netherlands},
+    series = {EuroSec'25}
+    }
+
+- title: "Validating Memory Safety in Rust Binaries"
+  authors: "**Antonis Louka**, Antreas Dionysiou, Elias Athanasopoulos"
+  year: 2024
+  venue: "Proceedings of the 17th European Workshop on Systems Security"
+  type: workshop
+  links:
+    - { name: "PDF", url: "/papers/eurosec24.pdf" }
+    - { name: "DOI",  url: "https://dl.acm.org/doi/abs/10.1145/3642974.3652281"}
+  bibtex: |
+    @inproceedings{10.1145/3642974.3652281,
+    author = {Louka, Antonis and Dionysiou, Antreas and Athanasopoulos, Elias},
+    title = {Validating Memory Safety in Rust Binaries},
+    year = {2024},
+    isbn = {9798400705427},
+    publisher = {Association for Computing Machinery},
+    address = {New York, NY, USA},
+    url = {https://doi.org/10.1145/3642974.3652281},
+    doi = {10.1145/3642974.3652281},
+    abstract = {Without depending on heavy runtime support, Rust can realize fast machine code that mitigates most of the common attacks associated with memory-corruption and can appear in all unsafe machine code developed using C/C++. Most of the work for producing machine code with security guarantees is carried out at compile-time by the Rust compiler. However, at runtime, there is no mechanism to ensure that the produced security guarantees, as computed at compile-time, are still in place.In this paper, we explore the possibilities of an attacker fabricating Rust binaries so that they are on purpose vulnerable. We show that it is possible to modify automatically, and at large scale, binaries so that certain defences, placed by the Rust compiler, are removed. We introduce a generic problem, and focus on concepts of spatial and temporal safety. Finally, we produce a validator that assesses if all checks ensuring spatial and temporal safety remain intact within a Rust binary, before executing it. Our work is a step towards validating Rust binaries at load time so that security guarantees computed at compile-time are effective at runtime.},
+    booktitle = {Proceedings of the 17th European Workshop on Systems Security},
+    pages = {8–14},
+    numpages = {7},
+    keywords = {Buffer Overflow, Memory Safety, Rust, Static Analysis},
+    location = {Athens, Greece},
+    series = {EuroSec '24}
+    }
