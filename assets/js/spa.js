@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (link.target === '_blank') return;
     if (link.getAttribute('href').startsWith('#')) return;
     if (link.hasAttribute('download')) return;
-    // Skip non-HTML assets (e.g. PDFs).
     const path = new URL(link.href).pathname;
     if (/\.(pdf|png|jpe?g|gif|svg|zip|csv|json)$/i.test(path)) return;
 
@@ -29,9 +28,13 @@ document.addEventListener('DOMContentLoaded', () => {
       const doc = new DOMParser().parseFromString(text, 'text/html');
 
       const newMain = doc.querySelector('.main');
-      const newTitle = doc.querySelector('title');
+      if (!newMain) {
+        window.location.href = url;
+        return;
+      }
 
-      if (newMain) main.innerHTML = newMain.innerHTML;
+      const newTitle = doc.querySelector('title');
+      main.innerHTML = newMain.innerHTML;
       if (newTitle) document.title = newTitle.innerText;
 
       document.dispatchEvent(new CustomEvent('page:loaded'));

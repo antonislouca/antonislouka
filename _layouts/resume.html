@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ page.title | default: "CV" }}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ '/assets/main.css' | relative_url }}">
+  </head>
+  <body class="resume-body">
+    <div class="resume-toolbar no-print">
+      <a href="{{ '/' | relative_url }}" class="pub-link">← Back to site</a>
+      <button id="export-pdf-btn" class="resume-print-btn">Export PDF</button>
+    </div>
+    <main class="resume-wrap" id="resume-content">
+      {{ content }}
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script>
+      document.getElementById('export-pdf-btn').addEventListener('click', function () {
+        var btn = this;
+        btn.textContent = 'Generating…';
+        btn.disabled = true;
+
+        var element = document.getElementById('resume-content');
+        var profile = element.querySelector('.r-name');
+        var name = profile ? profile.textContent.trim().replace(/\s+/g, '-') : 'CV';
+
+        html2pdf().set({
+          margin: [12, 14, 12, 14],
+          filename: 'CV-' + name + '.pdf',
+          image: { type: 'jpeg', quality: 0.98 },
+          html2canvas: { scale: 2, useCORS: true, letterRendering: true },
+          jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+        }).from(element).save().then(function () {
+          btn.textContent = 'Export PDF';
+          btn.disabled = false;
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -16,9 +16,36 @@
     });
   };
 
+  const initMenuToggle = () => {
+    const btn = document.querySelector('.menu-toggle');
+    const topbar = document.querySelector('.topbar');
+    if (!btn || !topbar || btn.dataset.menuInit) return;
+    btn.dataset.menuInit = 'true';
+
+    const icon = btn.querySelector('.menu-icon');
+    btn.addEventListener('click', () => {
+      const open = topbar.classList.toggle('nav-open');
+      btn.setAttribute('aria-expanded', open);
+      if (icon) icon.textContent = open ? '✕' : '☰';
+    });
+
+    const close = () => {
+      topbar.classList.remove('nav-open');
+      btn.setAttribute('aria-expanded', 'false');
+      if (icon) icon.textContent = '☰';
+    };
+
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', close);
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!topbar.contains(e.target)) close();
+    });
+  };
+
   const initBibToggle = () => {
     document.querySelectorAll('.bib-toggle').forEach(btn => {
-      // Avoid double listeners
       if (btn.dataset.bibInit) return;
       btn.dataset.bibInit = 'true';
       
@@ -34,13 +61,13 @@
     });
   };
 
-  // Run on initial load
   initTheme();
+  initMenuToggle();
   initBibToggle();
 
-  // If using SPA navigation, re-init when page content changes
   document.addEventListener('page:loaded', () => {
     initTheme();
+    initMenuToggle();
     initBibToggle();
   });
 })();

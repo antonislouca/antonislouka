@@ -6,9 +6,7 @@ permalink: /cv/
 
 {% assign p = site.data.profile %}
 
-{% if p.cv_pdf %}
-<p><a class="pub-link" href="{{ p.cv_pdf | relative_url }}">Download full CV (PDF)</a></p>
-{% endif %}
+<p><a class="pub-link" href="{{ '/resume/' | relative_url }}">Export CV as PDF →</a></p>
 
 ## Education
 
