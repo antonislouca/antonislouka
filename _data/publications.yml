@@ -6,6 +6,9 @@
   selected: true
   links:
     - { name: "PDF",   url: "/papers/sok-smm.pdf" }
+    - { name: "Website",   url: "https://smmsok.github.io/" }
+    - { name: "Artifacts",   url: "https://github.com/antonislouca/SoK-SMM" }
+    - { name: "Zenodo",   url: "https://zenodo.org/records/20395121" }
     - { name: "DOI",  url: ""}
 
   bibtex: |
@@ -25,8 +28,8 @@
   type: conference
   selected: true
   links:
-    - { name: "PDF",   url: "/papers/louka26pmplease.pdf" }
-    - { name: "Code",  url: "https://github.com/dnet-tee/PMPlease" }
+    - { name: "PDF",   url: "/papers/uasc26-pmplease.pdf" }
+    - { name: "Github",  url: "https://github.com/dnet-tee/PMPlease" }
     - { name: "DOI",  url: "https://doi.org/10.46586/uasc.2026.008"}
     - { name: "Talk",  url: "https://www.youtube.com/watch?v=bkYsV6FSWQs" }
 

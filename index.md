@@ -43,7 +43,7 @@ I am reachable at <a href="mailto:{{ p.email }}">{{ p.email }}</a>.
       <div class="pub-links">
         {% for l in pub.links %}<a class="pub-link" href="{{ l.url | relative_url }}" target="_blank" rel="noopener noreferrer">{{ l.name }}</a>{% endfor %}
         {% if pub.bibtex %}
-          <button class="pub-link bib-toggle" data-target="bib-{{ pub.title | slugify }}">bib</button>
+          <button class="pub-link bib-toggle" data-target="bib-{{ pub.title | slugify }}">BibTeX</button>
         {% endif %}
       </div>
       {% endif %}
